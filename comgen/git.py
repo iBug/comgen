@@ -27,3 +27,9 @@ class Git:
             environ["GIT_AUTHOR_DATE"] = datetime.fromtimestamp(atime).strftime(Git.time_format)
 
         return sp.Popen(cmd, env=environ).communicate()
+
+    @staticmethod
+    def checkout(branch="master"):
+        cmd = ["git", "checkout"]
+        cmd.append(branch)
+        return sp.Popen(cmd).communicate()
